@@ -1,1 +1,1 @@
-# Football-News
+# Football News application
