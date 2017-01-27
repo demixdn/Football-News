@@ -1,0 +1,80 @@
+apply plugin: 'com.android.library'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultPublishConfig "stagingRelease"
+    publishNonDefault true
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    productFlavors{
+
+        staging{
+            buildConfigField "String", "ENDPOINT", "\"http://football.ua/hnd/Android/\""
+            buildConfigField "String", "MENU", "\"Menu.ashx\""
+            buildConfigField "String", "NEWS", "\"News.ashx\""
+            buildConfigField "String", "NEWS_DETAIL", "\"NewsItem.ashx\""
+            buildConfigField "String", "MATCHES", "\"FootballMatches.ashx\""
+            buildConfigField "String", "TABLE", "\"FootballTable.ashx\""
+            buildConfigField "String", "TV", "\"TV.ashx\""
+        }
+
+        production{
+            buildConfigField "String", "ENDPOINT", "\"http://www.football.com/en/\""
+            buildConfigField "String", "MENU", "\"Menu.php\""
+            buildConfigField "String", "NEWS", "\"News.php\""
+            buildConfigField "String", "NEWS_DETAIL", "\"NewsItem.php\""
+            buildConfigField "String", "MATCHES", "\"FootballMatches.php\""
+            buildConfigField "String", "TABLE", "\"FootballTable.php\""
+            buildConfigField "String", "TV", "\"TV.php\""
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def dataDependencies = rootProject.ext.dataDependencies
+
+    compile dataDependencies.supportAnnotations
+    compile dataDependencies.guava
+    compile dataDependencies.okHttp
+    compile dataDependencies.okHttpLogging
+    compile dataDependencies.retorfit
+    compile (dataDependencies.simpleXml){
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+    compile dataDependencies.retorfitRxJava
+    compile dataDependencies.rxJava
+
+    compile project(':business')
+}

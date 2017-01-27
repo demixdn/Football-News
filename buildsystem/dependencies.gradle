@@ -1,0 +1,70 @@
+ext {
+    def majorVersion = 1; //max 2 numbers
+    def minorVersion = 0; //max 2 numbers
+    def patchVersion = 0; //max 3 numbers
+
+    //Android
+    buildToolsVersion =  "25.0.2"
+    minSdkVersion =      16
+    targetSdkVersion =   25
+    compileSdkVersion =  25
+
+    //Versions
+    versionCode = majorVersion * 100000 + minorVersion * 1000 + patchVersion
+    versionName = "${majorVersion}.${minorVersion}.${patchVersion}"
+
+    //Libraries
+    androidSupportVersion =     '25.1.0'
+    guavaVersion =              '18.0'
+    rxJavaVersion =             '2.0.4'
+    rxAndroidVersion =          '2.0.1'
+    rxBinding =                 '1.0.0'
+    butterKnifeVersion =        '8.5.1'
+    okHttpVersion =             '3.4.1'
+    retrofitVersion =           '2.2.0-SNAPSHOT'
+    autoValueVersion =          '1.2'
+
+
+    //Testing
+    jUnitVersion = '4.12'
+    assertJVersion = '3.6.1'
+    mockitoVersion = '2.5.0'
+    robolectricVersion = '3.0'
+
+
+    appDependencies = [
+            appcompat_v7:       "com.android.support:appcompat-v7:${androidSupportVersion}",
+            design:             "com.android.support:design:${androidSupportVersion}",
+            supportAnnotations: "com.android.support:support-annotations:${androidSupportVersion}",
+            recyclerView:       "com.android.support:recyclerview-v7:${androidSupportVersion}",
+            cardView:           "com.android.support:cardview-v7:${androidSupportVersion}",
+            guava:              "com.google.guava:guava:${guavaVersion}",
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            butterKnife:        "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeCompiler:"com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+    ]
+
+    domainDependencies = [
+            guava:              "com.google.guava:guava:${guavaVersion}",
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+    ]
+
+    dataDependencies = [
+            supportAnnotations: "com.android.support:support-annotations:${androidSupportVersion}",
+            guava:              "com.google.guava:guava:${guavaVersion}",
+            okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogging:      "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retorfit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            simpleXml:          "com.squareup.retrofit2:converter-simplexml:${retrofitVersion}",
+            retorfitRxJava:     "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+    ]
+
+    testDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            assertj:            "org.assertj:assertj-core:${assertJVersion}",
+            mockito:            "org.mockito:mockito-core:${mockitoVersion}",
+            robolectric:        "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+}
