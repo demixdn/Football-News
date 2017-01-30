@@ -3,8 +3,11 @@ package com.github.rules.interactor;
 import com.github.rules.FootballRepository;
 import com.github.rules.executor.UIScheduler;
 import com.github.rules.executor.WorkerScheduler;
+import com.github.rules.models.NewsItem;
 
-import io.reactivex.Observable;
+import java.util.List;
+
+import io.reactivex.observers.DefaultObserver;
 
 /**
  * Date: 26.01.2017
@@ -14,15 +17,18 @@ import io.reactivex.Observable;
  *         Project FootballNews
  */
 
-public class GetFootballNews extends UseCase {
+public class GetFootballNews {
 
-    private Integer pageId;
+    private final UIScheduler uiScheduler;
+    private final WorkerScheduler workerScheduler;
     private final FootballRepository footballRepository;
+    private Integer pageId;
 
     public GetFootballNews(UIScheduler uiScheduler, WorkerScheduler workerScheduler, FootballRepository footballRepository) {
-        super(uiScheduler, workerScheduler);
-        this.pageId = null;
+        this.uiScheduler = uiScheduler;
+        this.workerScheduler = workerScheduler;
         this.footballRepository = footballRepository;
+        this.pageId = null;
     }
 
     public GetFootballNews setPageId(Integer pageId) {
@@ -30,8 +36,10 @@ public class GetFootballNews extends UseCase {
         return this;
     }
 
-    @Override
-    protected Observable buildUseCaseObservable() {
-        return footballRepository.getNews(pageId);
+    public void execute(DefaultObserver<List<NewsItem>> listNewsObserver) {
+        footballRepository.getNews(pageId)
+                .subscribeOn(workerScheduler.getScheduler())
+                .observeOn(uiScheduler.getScheduler())
+                .subscribe(listNewsObserver);
     }
 }

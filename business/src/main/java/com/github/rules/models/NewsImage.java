@@ -1,29 +1,27 @@
-package com.github.footballdata.model;
+package com.github.rules.models;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Root;
-import org.simpleframework.xml.Text;
+import java.util.Locale;
 
 /**
  * Date: 30.01.2017
- * Time: 12:49
+ * Time: 12:56
  *
  * @author Aleks Sander
  *         Project FootballNews
  */
-@Root(name = "img")
-public class ImageDTO {
-    @Attribute(name = "height")
+
+public class NewsImage {
+
+    private static final String FULL_IMAGE_SIZE = "768x437";
+
     private int height;
-    @Attribute(name = "width")
     private int width;
-    @Text
     private String url;
 
-    public ImageDTO() {
+    public NewsImage() {
     }
 
-    public ImageDTO(int height, int width, String url) {
+    public NewsImage(int height, int width, String url) {
         this.height = height;
         this.width = width;
         this.url = url;
@@ -51,6 +49,11 @@ public class ImageDTO {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getFullSizeUrl() {
+        String replacement = String.format(Locale.getDefault(), "%dx%d", width, height);
+        return url.replace(replacement, FULL_IMAGE_SIZE);
     }
 
     @Override

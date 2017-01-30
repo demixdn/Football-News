@@ -1,6 +1,6 @@
 package com.github.footballnews.di;
 
-import com.github.footballnews.ui.StartActivity;
+import com.github.footballnews.ui.newslist.view.NewsListView;
 
 /**
  * Date: 27.01.2017
@@ -10,7 +10,6 @@ import com.github.footballnews.ui.StartActivity;
  *         Project FootballNews
  */
 
-public interface AppComponent extends Component{
-
-    void inject(StartActivity activity);
+public interface AppComponent extends Component {
+    void inject(NewsListView newsListView);
 }

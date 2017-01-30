@@ -57,8 +57,10 @@ dependencies {
     compile appDependencies.guava
     compile appDependencies.rxJava
     compile appDependencies.rxAndroid
+    compile appDependencies.roundedimageview
+    compile appDependencies.glide
     compile appDependencies.butterKnife
-    annotationProcessor appDependencies.butterKnifeCompiler
+    apt appDependencies.butterKnifeCompiler
     compile project(':business')
     debugCompile project(path: ':data', configuration:'stagingDebug')
     releaseCompile project(path: ':data', configuration:'stagingRelease')

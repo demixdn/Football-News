@@ -23,6 +23,8 @@ ext {
     okHttpVersion =             '3.4.1'
     retrofitVersion =           '2.2.0-SNAPSHOT'
     autoValueVersion =          '1.2'
+    circleImageViewVersion =    '2.3.0'
+    glideVersion =              '3.7.0'
 
 
     //Testing
@@ -41,6 +43,8 @@ ext {
             guava:              "com.google.guava:guava:${guavaVersion}",
             rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
             rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            roundedimageview:   "com.makeramen:roundedimageview:${circleImageViewVersion}",
+            glide:              "com.github.bumptech.glide:glide:${glideVersion}",
             butterKnife:        "com.jakewharton:butterknife:${butterKnifeVersion}",
             butterKnifeCompiler:"com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
     ]

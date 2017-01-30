@@ -30,12 +30,12 @@ public class NewsItem {
 
     private String article;
 
-    private String image;
+    private NewsImage image;
 
     public NewsItem() {
     }
 
-    public NewsItem(int newsId, String type, String title, String link, String url, long date, String description, String category, String article, String image) {
+    public NewsItem(int newsId, String type, String title, String link, String url, long date, String description, String category, String article, NewsImage image) {
         this.newsId = newsId;
         this.type = type;
         this.title = title;
@@ -120,11 +120,11 @@ public class NewsItem {
         this.article = article;
     }
 
-    public String getImage() {
+    public NewsImage getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(NewsImage image) {
         this.image = image;
     }
 

@@ -46,15 +46,15 @@ public class NewsItemDTO {
     private String article;
 
     @Nullable
-    @Element(name = "img", data = true)
-    private String image;
+    @Element(name = "img")
+    private ImageDTO image;
 
     public NewsItemDTO() {
     }
 
     public NewsItemDTO(@Nullable String type, @Nullable String title, @Nullable String link,
                        @Nullable String date, @Nullable String description, @Nullable String category,
-                       @Nullable String article, @Nullable String image) {
+                       @Nullable String article, @Nullable ImageDTO image) {
         this.type = type;
         this.title = title;
         this.link = link;
@@ -129,11 +129,11 @@ public class NewsItemDTO {
     }
 
     @Nullable
-    public String getImage() {
+    public ImageDTO getImage() {
         return image;
     }
 
-    public void setImage(@Nullable String image) {
+    public void setImage(@Nullable ImageDTO image) {
         this.image = image;
     }
 

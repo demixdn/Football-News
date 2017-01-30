@@ -11,7 +11,9 @@ import com.github.footballdata.repository.FootballRepositoryImpl;
 import com.github.footballnews.BuildConfig;
 import com.github.footballnews.executors.AndroidUiScheduler;
 import com.github.footballnews.executors.AndroidWorkerScheduler;
-import com.github.footballnews.ui.StartActivity;
+import com.github.footballnews.ui.newslist.presenter.NewsListPresenter;
+import com.github.footballnews.ui.newslist.presenter.NewsListPresenterImpl;
+import com.github.footballnews.ui.newslist.view.NewsListView;
 import com.github.rules.FootballRepository;
 import com.github.rules.executor.UIScheduler;
 import com.github.rules.executor.WorkerScheduler;
@@ -46,6 +48,7 @@ public class AppModule implements AppComponent {
     private FootballRepository footballRepository;
     private MenuMapper menuMapper;
     private NewsItemMapper newsItemMapper;
+    private NewsListPresenter newsListPresenter;
 
 
     public AppModule(Context applicationContext, String baseUrl) {
@@ -123,8 +126,15 @@ public class AppModule implements AppComponent {
         return newsItemMapper;
     }
 
+    public NewsListPresenter getNewsListPresenter() {
+        if(newsListPresenter == null)
+            newsListPresenter = new NewsListPresenterImpl(getFootballNews());
+        return newsListPresenter;
+    }
+
     @Override
-    public void inject(StartActivity activity) {
-        activity.setUseCaseGetFootbalNews(getFootballNews());
+    public void inject(NewsListView newsListView) {
+        newsListView.bindPresenter(getNewsListPresenter());
+        newsListView.getPresenter().bindView(newsListView);
     }
 }

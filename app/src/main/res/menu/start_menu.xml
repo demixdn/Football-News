@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group_screens"
+        android:checkableBehavior="single">
+        <item android:id="@+id/menu_item_ua"
+            android:title="Украина"/>
+        <item android:id="@+id/menu_item_ua1"
+              android:title="Украина. Лига 1"/>
+        <item android:id="@+id/menu_item_en"
+              android:title="Англия"/>
+        <item android:id="@+id/menu_item_ag"
+              android:title="Аргентина"/>
+        <item android:id="@+id/menu_item_br"
+              android:title="Бразилия"/>
+        <item android:id="@+id/menu_item_de"
+              android:title="Германия"/>
+        <item android:id="@+id/menu_item_es"
+              android:title="Испания"/>
+        <item android:id="@+id/menu_item_it"
+              android:title="Италия"/>
+        <item android:id="@+id/menu_item_nl"
+              android:title="Нидерланды"/>
+        <item android:id="@+id/menu_item_pt"
+              android:title="Португалия"/>
+        <item android:id="@+id/menu_item_us"
+              android:title="Северная Америка"/>
+        <item android:id="@+id/menu_item_tr"
+              android:title="Турция"/>
+        <item android:id="@+id/menu_item_fr"
+              android:title="Франция"/>
+        <item android:id="@+id/menu_item_other"
+              android:title="Другие страны"/>
+        <item android:id="@+id/menu_item_chl"
+              android:title="Лига чемпионов"/>
+        <item android:id="@+id/menu_item_eul"
+              android:title="Лига Европы"/>
+        <item android:id="@+id/menu_item_libcoup"
+              android:title="Копа Либертадорес"/>
+        <item android:id="@+id/menu_item_wc14"
+              android:title="ЧМ-2014"/>
+        <item android:id="@+id/menu_item_eu16"
+              android:title="ЕВРО-2016"/>
+        <item android:id="@+id/menu_item_read"
+              android:title="ЧТИВО"/>
+    </group>
+</menu>
