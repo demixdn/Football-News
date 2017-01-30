@@ -26,5 +26,4 @@ public final class DataConst {
         public static final String TABLE_ITEM = "TableItem";
     }
 
-    public static final String FULL_IMAGE_SIZE = "768x437";
 }
