@@ -128,7 +128,7 @@ public class AppModule implements AppComponent {
 
     public NewsListPresenter getNewsListPresenter() {
         if(newsListPresenter == null)
-            newsListPresenter = new NewsListPresenterImpl(getFootballNews());
+            newsListPresenter = new NewsListPresenterImpl(getFootballNews(), applicationContext);
         return newsListPresenter;
     }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="menu_item_ua"  type="id"/>
+    <item name="menu_item_ua1"  type="id"/>
+    <item name="menu_item_en"  type="id"/>
+    <item name="menu_item_ag"  type="id"/>
+    <item name="menu_item_br"  type="id"/>
+    <item name="menu_item_de"  type="id"/>
+    <item name="menu_item_es"  type="id"/>
+    <item name="menu_item_it"  type="id"/>
+    <item name="menu_item_nl"  type="id"/>
+    <item name="menu_item_pt"  type="id"/>
+    <item name="menu_item_us"  type="id"/>
+    <item name="menu_item_tr"  type="id"/>
+    <item name="menu_item_fr"  type="id"/>
+    <item name="menu_item_other"  type="id"/>
+    <item name="menu_item_chl"  type="id"/>
+    <item name="menu_item_eul"  type="id"/>
+    <item name="menu_item_libcoup"  type="id"/>
+    <item name="menu_item_wc14"  type="id"/>
+    <item name="menu_item_eu16"  type="id"/>
+    <item name="menu_item_read"  type="id"/>
+
+    <item name="read_442"  type="id"/>
+    <item name="read_business"  type="id"/>
+    <item name="read_hit_and_run"  type="id"/>
+    <item name="read_another_football"  type="id"/>
+    <item name="read_spanish_orderly"  type="id"/>
+    <item name="read_retro"  type="id"/>
+    <item name="read_scout"  type="id"/>
+    <item name="read_third_time"  type="id"/>
+    <item name="read_other"  type="id"/>
+</resources>

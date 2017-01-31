@@ -1,5 +1,7 @@
 package com.github.footballnews.ui.newslist.presenter;
 
+import android.view.MenuItem;
+
 import com.github.footballnews.ui.base.Presenter;
 import com.github.footballnews.ui.newslist.view.NewsListView;
 
@@ -14,4 +16,9 @@ import com.github.footballnews.ui.newslist.view.NewsListView;
 public interface NewsListPresenter extends Presenter<NewsListView> {
 
     void loadNewsList();
+
+    void loadNewsList(MenuItem item);
+
+    void bottomNavigationChange(MenuItem item);
+
 }

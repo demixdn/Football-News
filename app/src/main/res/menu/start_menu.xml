@@ -1,47 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group
-        android:id="@+id/group_screens"
+        android:id="@+id/group_main"
         android:checkableBehavior="single">
-        <item android:id="@+id/menu_item_ua"
-            android:title="Украина"/>
-        <item android:id="@+id/menu_item_ua1"
-              android:title="Украина. Лига 1"/>
-        <item android:id="@+id/menu_item_en"
-              android:title="Англия"/>
-        <item android:id="@+id/menu_item_ag"
-              android:title="Аргентина"/>
-        <item android:id="@+id/menu_item_br"
-              android:title="Бразилия"/>
-        <item android:id="@+id/menu_item_de"
-              android:title="Германия"/>
-        <item android:id="@+id/menu_item_es"
-              android:title="Испания"/>
-        <item android:id="@+id/menu_item_it"
-              android:title="Италия"/>
-        <item android:id="@+id/menu_item_nl"
-              android:title="Нидерланды"/>
-        <item android:id="@+id/menu_item_pt"
-              android:title="Португалия"/>
-        <item android:id="@+id/menu_item_us"
-              android:title="Северная Америка"/>
-        <item android:id="@+id/menu_item_tr"
-              android:title="Турция"/>
-        <item android:id="@+id/menu_item_fr"
-              android:title="Франция"/>
-        <item android:id="@+id/menu_item_other"
-              android:title="Другие страны"/>
-        <item android:id="@+id/menu_item_chl"
-              android:title="Лига чемпионов"/>
-        <item android:id="@+id/menu_item_eul"
-              android:title="Лига Европы"/>
-        <item android:id="@+id/menu_item_libcoup"
-              android:title="Копа Либертадорес"/>
-        <item android:id="@+id/menu_item_wc14"
-              android:title="ЧМ-2014"/>
-        <item android:id="@+id/menu_item_eu16"
-              android:title="ЕВРО-2016"/>
-        <item android:id="@+id/menu_item_read"
-              android:title="ЧТИВО"/>
+        <item
+            android:id="@id/menu_item_ua"
+            android:title="@string/ukraine"/>
+        <item
+            android:id="@id/menu_item_ua1"
+            android:title="@string/ukraine_1"/>
+        <item
+            android:id="@id/menu_item_en"
+            android:title="@string/england"/>
+        <item
+            android:id="@id/menu_item_ag"
+            android:title="@string/argentina"/>
+        <item
+            android:id="@id/menu_item_br"
+            android:title="@string/brazil"/>
+        <item
+            android:id="@id/menu_item_de"
+            android:title="@string/germany"/>
+        <item
+            android:id="@id/menu_item_es"
+            android:title="@string/spain"/>
+        <item
+            android:id="@id/menu_item_it"
+            android:title="@string/italia"/>
+        <item
+            android:id="@id/menu_item_nl"
+            android:title="@string/netherlands"/>
+        <item
+            android:id="@id/menu_item_pt"
+            android:title="@string/portugal"/>
+        <item
+            android:id="@id/menu_item_us"
+            android:title="@string/usa"/>
+        <item
+            android:id="@id/menu_item_tr"
+            android:title="@string/turkey"/>
+        <item
+            android:id="@id/menu_item_fr"
+            android:title="@string/france"/>
+        <item
+            android:id="@id/menu_item_other"
+            android:title="@string/other_countries"/>
+        <item
+            android:id="@id/menu_item_chl"
+            android:title="@string/champions_league"/>
+        <item
+            android:id="@id/menu_item_eul"
+            android:title="@string/europe_league"/>
+        <item
+            android:id="@id/menu_item_libcoup"
+            android:title="@string/copa_libertadores"/>
+        <item
+            android:id="@id/menu_item_wc14"
+            android:title="@string/wc_2014"/>
+        <item
+            android:id="@id/menu_item_eu16"
+            android:title="@string/euro_2016"/>
+        <item
+            android:id="@id/menu_item_read"
+            android:title="@string/reading">
+            <menu>
+                <group
+                    android:id="@+id/group_reading"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@id/read_442"
+                        android:title="@string/read_4_4_2"/>
+                    <item
+                        android:id="@id/read_business"
+                        android:title="@string/read_business"/>
+                    <item
+                        android:id="@id/read_hit_and_run"
+                        android:title="@string/hit_and_run"/>
+                    <item
+                        android:id="@id/read_another_football"
+                        android:title="@string/another_football"/>
+                    <item
+                        android:id="@id/read_spanish_orderly"
+                        android:title="@string/spanish_orderly"/>
+                    <item
+                        android:id="@id/read_retro"
+                        android:title="@string/retro_football"/>
+                    <item
+                        android:id="@id/read_scout"
+                        android:title="@string/scout"/>
+                    <item
+                        android:id="@id/read_third_time"
+                        android:title="@string/third_time"/>
+                    <item
+                        android:id="@id/read_other"
+                        android:title="@string/other"/>
+                </group>
+            </menu>
+        </item>
     </group>
 </menu>
