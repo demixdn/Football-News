@@ -28,14 +28,16 @@ import butterknife.ButterKnife;
 public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsItemHolder> {
 
     private List<NewsItemModel> newsItemModels;
+    private final OnNewsItemClickListener clickListener;
 
-    public NewsListAdapter(List<NewsItemModel> newsItemModels) {
+    public NewsListAdapter(List<NewsItemModel> newsItemModels, OnNewsItemClickListener clickListener) {
         this.newsItemModels = newsItemModels;
+        this.clickListener = clickListener;
     }
 
     @Override
     public NewsItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new NewsItemHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_list, parent, false));
+        return new NewsItemHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_list, parent, false), clickListener);
     }
 
     @Override
@@ -44,6 +46,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsIt
         holder.newsItemDate.setText(model.getDate());
         holder.newsItemDescription.setText(model.getDescription());
         holder.newsItemTitle.setText(model.getTitle());
+        holder.itemView.setTag(model);
         Glide.with(holder.newsItemImage.getContext())
                 .load(model.getImageUrl())
                 .asBitmap()
@@ -72,9 +75,10 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsIt
         @BindView(R.id.newsItemDescription)
         TextView newsItemDescription;
 
-        NewsItemHolder(View itemView) {
+        NewsItemHolder(View itemView, OnNewsItemClickListener clickListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(v -> clickListener.onItemClick((NewsItemModel)v.getTag()));
         }
     }
 }

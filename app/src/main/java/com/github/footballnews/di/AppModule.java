@@ -11,6 +11,9 @@ import com.github.footballdata.repository.FootballRepositoryImpl;
 import com.github.footballnews.BuildConfig;
 import com.github.footballnews.executors.AndroidUiScheduler;
 import com.github.footballnews.executors.AndroidWorkerScheduler;
+import com.github.footballnews.ui.newsitem.presenter.NewsItemPresenter;
+import com.github.footballnews.ui.newsitem.presenter.NewsItemPresenterImpl;
+import com.github.footballnews.ui.newsitem.view.NewsItemView;
 import com.github.footballnews.ui.newslist.presenter.NewsListPresenter;
 import com.github.footballnews.ui.newslist.presenter.NewsListPresenterImpl;
 import com.github.footballnews.ui.newslist.view.NewsListView;
@@ -49,6 +52,7 @@ public class AppModule implements AppComponent {
     private MenuMapper menuMapper;
     private NewsItemMapper newsItemMapper;
     private NewsListPresenter newsListPresenter;
+    private NewsItemPresenter newsItemPresenter;
 
 
     public AppModule(Context applicationContext, String baseUrl) {
@@ -132,9 +136,21 @@ public class AppModule implements AppComponent {
         return newsListPresenter;
     }
 
+    public NewsItemPresenter getNewsItemPresenter() {
+        if(newsItemPresenter == null)
+            newsItemPresenter = new NewsItemPresenterImpl(getFootballItemDetail());
+        return newsItemPresenter;
+    }
+
     @Override
     public void inject(NewsListView newsListView) {
         newsListView.bindPresenter(getNewsListPresenter());
         newsListView.getPresenter().bindView(newsListView);
+    }
+
+    @Override
+    public void inject(NewsItemView newsItemView) {
+        newsItemView.bindPresenter(getNewsItemPresenter());
+        newsItemView.getPresenter().bindView(newsItemView);
     }
 }

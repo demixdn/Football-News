@@ -1,5 +1,6 @@
-package com.github.footballnews.ui;
+package com.github.footballnews.ui.newslist.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,9 +21,10 @@ import com.github.footballnews.R;
 import com.github.footballnews.di.AppComponent;
 import com.github.footballnews.di.HasComponent;
 import com.github.footballnews.model.NewsItemModel;
+import com.github.footballnews.ui.newsitem.view.NewsItemActivity;
 import com.github.footballnews.ui.newslist.adapter.NewsListAdapter;
+import com.github.footballnews.ui.newslist.adapter.OnNewsItemClickListener;
 import com.github.footballnews.ui.newslist.presenter.NewsListPresenter;
-import com.github.footballnews.ui.newslist.view.NewsListView;
 import com.github.footballnews.ui.widget.LoadingDialog;
 
 import java.util.List;
@@ -33,7 +35,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HasComponent<AppComponent>,
-        NewsListView {
+        NewsListView, OnNewsItemClickListener {
 
     @BindView(R.id.rvNewsList)
     RecyclerView recyclerNewsList;
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showNewsList(List<NewsItemModel> newsItemModelList) {
-        recyclerNewsList.setAdapter(new NewsListAdapter(newsItemModelList));
+        recyclerNewsList.setAdapter(new NewsListAdapter(newsItemModelList, this));
         recyclerNewsList.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
     }
 
@@ -141,5 +143,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public NewsListPresenter getPresenter() {
         return presenter;
+    }
+
+    @Override
+    public void onItemClick(NewsItemModel newsItemModel) {
+        Log.i("TAG", "onItemClick: " + newsItemModel);
+        Intent intent = new Intent(MainActivity.this, NewsItemActivity.class);
+        intent.putExtra(NewsItemActivity.BUNDLE_ITEM, newsItemModel);
+        startActivity(intent);
     }
 }

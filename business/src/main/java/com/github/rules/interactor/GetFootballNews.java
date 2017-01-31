@@ -4,6 +4,7 @@ import com.github.rules.FootballRepository;
 import com.github.rules.executor.UIScheduler;
 import com.github.rules.executor.WorkerScheduler;
 import com.github.rules.models.NewsItem;
+import com.google.common.base.Preconditions;
 
 import java.util.List;
 
@@ -25,6 +26,9 @@ public class GetFootballNews {
     private Integer pageId;
 
     public GetFootballNews(UIScheduler uiScheduler, WorkerScheduler workerScheduler, FootballRepository footballRepository) {
+        Preconditions.checkNotNull(uiScheduler);
+        Preconditions.checkNotNull(workerScheduler);
+        Preconditions.checkNotNull(footballRepository);
         this.uiScheduler = uiScheduler;
         this.workerScheduler = workerScheduler;
         this.footballRepository = footballRepository;

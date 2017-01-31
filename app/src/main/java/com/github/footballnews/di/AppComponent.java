@@ -1,5 +1,6 @@
 package com.github.footballnews.di;
 
+import com.github.footballnews.ui.newsitem.view.NewsItemView;
 import com.github.footballnews.ui.newslist.view.NewsListView;
 
 /**
@@ -12,4 +13,5 @@ import com.github.footballnews.ui.newslist.view.NewsListView;
 
 public interface AppComponent extends Component {
     void inject(NewsListView newsListView);
+    void inject(NewsItemView newsItemView);
 }

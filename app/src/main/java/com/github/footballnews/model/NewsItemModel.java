@@ -4,6 +4,8 @@ import android.support.annotation.Nullable;
 
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
+
 /**
  * Date: 30.01.2017
  * Time: 15:59
@@ -12,7 +14,8 @@ import com.google.common.base.Objects;
  *         Project FootballNews
  */
 
-public class NewsItemModel {
+public class NewsItemModel implements Serializable {
+    public static final String DATE_PATTERN = "dd/MM hh:mm";
     private int id;
     private String title;
     private String date;

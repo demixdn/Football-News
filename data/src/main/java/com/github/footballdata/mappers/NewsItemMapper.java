@@ -10,8 +10,14 @@ import com.github.rules.models.NewsImage;
 import com.github.rules.models.NewsItem;
 import com.google.common.base.Strings;
 
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Date: 26.01.2017
@@ -27,7 +33,7 @@ public class NewsItemMapper {
     }
 
     @NonNull
-    public List<NewsItem> transformList(@Nullable RssDTO rss) {
+    public List<NewsItem> transformList(@Nullable RssDTO rss) throws MalformedURLException, UnsupportedEncodingException {
         List<NewsItem> result = new ArrayList<>();
         if (rss != null && rss.getChannel() != null && rss.getChannel().getNewsItems() != null && !rss.getChannel().getNewsItems().isEmpty()) {
             for (NewsItemDTO item : rss.getChannel().getNewsItems()) {
@@ -38,16 +44,37 @@ public class NewsItemMapper {
     }
 
     @NonNull
-    private NewsItem transformItem(@NonNull NewsItemDTO src) {
+    private NewsItem transformItem(@NonNull NewsItemDTO src) throws MalformedURLException, UnsupportedEncodingException {
         NewsItem result = new NewsItem();
         result.setType(src.getType());
         result.setTitle(src.getTitle());
         result.setLink(src.getLink());
+        result.setNewsId(parseIdFromLink(src.getLink()));
         result.setDate(decodeDate(src.getDate()));
         result.setDescription(src.getDescription());
         final NewsImage newsImage = imageFrom(src.getImage());
         result.setImage(newsImage);
         return result;
+    }
+
+    private static int parseIdFromLink(String link) throws MalformedURLException, UnsupportedEncodingException {
+        //http://football.ua/hnd/Android/NewsItem.ashx?news_id=326274
+        String positionString = splitQuery(new URL(link)).get("news_id");
+        return Integer.decode(positionString);
+    }
+
+    private static Map<String, String> splitQuery(URL url) throws UnsupportedEncodingException {
+        final Map<String, String> queryPairs = new HashMap<>();
+        final String[] pairs = url.getQuery().split("&");
+        for (String pair : pairs) {
+            final int indexOf = pair.indexOf('=');
+            final String key = indexOf > 0 ? URLDecoder.decode(pair.substring(0, indexOf), "UTF-8") : pair;
+            final String value = indexOf > 0 && pair.length() > indexOf + 1 ? URLDecoder.decode(pair.substring(indexOf + 1), "UTF-8") : null;
+            if (!queryPairs.containsKey(key)) {
+                queryPairs.put(key, value);
+            }
+        }
+        return queryPairs;
     }
 
     @Nullable

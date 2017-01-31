@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import com.github.footballnews.R;
 import com.github.footballnews.data.StaticMenu;
 import com.github.footballnews.model.MenuItemModel;
-import com.github.footballnews.model.NewsItemMapper;
+import com.github.footballnews.model.mapper.NewsItemMapper;
 import com.github.footballnews.ui.newslist.view.NewsListView;
 import com.github.rules.interactor.GetFootballNews;
 import com.github.rules.models.NewsItem;
