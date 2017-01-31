@@ -54,6 +54,7 @@ dependencies {
     compile appDependencies.supportAnnotations
     compile appDependencies.recyclerView
     compile appDependencies.cardView
+    compile appDependencies.palette
     compile appDependencies.guava
     compile appDependencies.gson
     compile appDependencies.rxJava

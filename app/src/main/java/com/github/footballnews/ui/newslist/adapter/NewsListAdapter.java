@@ -37,7 +37,9 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsIt
 
     @Override
     public NewsItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new NewsItemHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_list, parent, false), clickListener);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_list, parent, false);
+        itemView.setOnClickListener(v -> clickListener.onItemClick(v, (NewsItemModel)v.getTag()));
+        return new NewsItemHolder(itemView);
     }
 
     @Override
@@ -75,10 +77,9 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsIt
         @BindView(R.id.newsItemDescription)
         TextView newsItemDescription;
 
-        NewsItemHolder(View itemView, OnNewsItemClickListener clickListener) {
+        NewsItemHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            itemView.setOnClickListener(v -> clickListener.onItemClick((NewsItemModel)v.getTag()));
         }
     }
 }

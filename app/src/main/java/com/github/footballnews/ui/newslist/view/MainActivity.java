@@ -1,6 +1,5 @@
 package com.github.footballnews.ui.newslist.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.github.footballnews.App;
 import com.github.footballnews.R;
@@ -146,10 +146,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onItemClick(NewsItemModel newsItemModel) {
+    public void onItemClick(View view, NewsItemModel newsItemModel) {
         Log.i("TAG", "onItemClick: " + newsItemModel);
-        Intent intent = new Intent(MainActivity.this, NewsItemActivity.class);
-        intent.putExtra(NewsItemActivity.BUNDLE_ITEM, newsItemModel);
-        startActivity(intent);
+        NewsItemActivity.navigate(this, ButterKnife.findById(view, R.id.newsItemImage), newsItemModel);
     }
 }

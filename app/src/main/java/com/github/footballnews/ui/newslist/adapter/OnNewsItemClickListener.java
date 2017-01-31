@@ -1,5 +1,7 @@
 package com.github.footballnews.ui.newslist.adapter;
 
+import android.view.View;
+
 import com.github.footballnews.model.NewsItemModel;
 
 /**
@@ -11,5 +13,5 @@ import com.github.footballnews.model.NewsItemModel;
  */
 
 public interface OnNewsItemClickListener {
-    void onItemClick(NewsItemModel newsItemModel);
+    void onItemClick(View view, NewsItemModel newsItemModel);
 }
