@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "parent_id": 0,
+    "name": "Украина",
+    "page_id": 4,
+    "champ_id": 18
+  },
+  {
+    "id": 2,
+    "parent_id": 0,
+    "name": "Украина. Лига 1",
+    "page_id": 12,
+    "champ_id": 46
+  },
+  {
+    "id": 3,
+    "parent_id": 0,
+    "name": "Англия",
+    "page_id": 66,
+    "champ_id": 15
+  },
+  {
+    "id": 4,
+    "parent_id": 0,
+    "name": "Аргентина",
+    "page_id": 96,
+    "champ_id": 68
+  },
+  {
+    "id": 5,
+    "parent_id": 0,
+    "name": "Бразилия",
+    "page_id": 70,
+    "champ_id": 51
+  },
+  {
+    "id": 6,
+    "parent_id": 0,
+    "name": "Германия",
+    "page_id": 74,
+    "champ_id": 13
+  },
+  {
+    "id": 7,
+    "parent_id": 0,
+    "name": "Испания",
+    "page_id": 121,
+    "champ_id": 10
+  },
+  {
+    "id": 8,
+    "parent_id": 0,
+    "name": "Италия",
+    "page_id": 113,
+    "champ_id": 12
+  },
+  {
+    "id": 9,
+    "parent_id": 0,
+    "name": "Нидерланды",
+    "page_id": 129,
+    "champ_id": 38
+  },
+  {
+    "id": 10,
+    "parent_id": 0,
+    "name": "Португалия",
+    "page_id": 168,
+    "champ_id": 32
+  },
+  {
+    "id": 11,
+    "parent_id": 0,
+    "name": "Северная Америка",
+    "page_id": 184
+  },
+  {
+    "id": 12,
+    "parent_id": 0,
+    "name": "Турция",
+    "page_id": 197,
+    "champ_id": 62
+  },
+  {
+    "id": 13,
+    "parent_id": 0,
+    "name": "Франция",
+    "page_id": 189,
+    "champ_id": 14
+  },
+  {
+    "id": 14,
+    "parent_id": 0,
+    "name": "Другие страны",
+    "page_id": 181
+  },
+  {
+    "id": 15,
+    "parent_id": 0,
+    "name": "Лига чемпионов",
+    "page_id": 24,
+    "champ_id": 16
+  },
+  {
+    "id": 16,
+    "parent_id": 0,
+    "name": "Лига Европы",
+    "page_id": 105,
+    "champ_id": 58
+  },
+  {
+    "id": 17,
+    "parent_id": 0,
+    "name": "Копа Либертадорес",
+    "page_id": 156,
+    "champ_id": 65
+  },
+  {
+    "id": 18,
+    "parent_id": 0,
+    "name": "ЧМ-2014",
+    "page_id": 137,
+    "champ_id": 20
+  },
+  {
+    "id": 19,
+    "parent_id": 0,
+    "name": "ЕВРО-2016",
+    "page_id": 1467,
+    "champ_id": 23
+  },
+  {
+    "id": 20,
+    "parent_id": 0,
+    "name": "ЧТИВО"
+  },
+  {
+    "id": 21,
+    "parent_id": 20,
+    "name": "4-4-2",
+    "page_id": 244
+  },
+  {
+    "id": 22,
+    "parent_id": 20,
+    "name": "Бизнес и финансы",
+    "page_id": 203
+  },
+  {
+    "id": 23,
+    "parent_id": 20,
+    "name": "Бей-беги",
+    "page_id": 213
+  },
+  {
+    "id": 24,
+    "parent_id": 20,
+    "name": "Другой футбол",
+    "page_id": 306
+  },
+  {
+    "id": 25,
+    "parent_id": 20,
+    "name": "Испанский связной",
+    "page_id": 223
+  },
+  {
+    "id": 26,
+    "parent_id": 20,
+    "name": "Ретро Футбол",
+    "page_id": 229
+  },
+  {
+    "id": 27,
+    "parent_id": 20,
+    "name": "Скаут",
+    "page_id": 226
+  },
+  {
+    "id": 28,
+    "parent_id": 20,
+    "name": "Третий тайм",
+    "page_id": 232
+  },
+  {
+    "id": 29,
+    "parent_id": 20,
+    "name": "Прочее",
+    "page_id": 220
+  }
+]

@@ -92,8 +92,8 @@ public class NewsItemActivity extends AppCompatActivity implements HasComponent<
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                        Palette.from(resource).generate(NewsItemActivity.this::applyPalette);
                         newsImage.setImageBitmap(resource);
+                        Palette.from(resource).generate(NewsItemActivity.this::applyPalette);
                     }
                 });
         getPresenter().loadNewsItem(model.getId());
