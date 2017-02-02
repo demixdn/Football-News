@@ -27,6 +27,7 @@ import com.github.footballnews.ui.newslist.adapter.OnNewsItemClickListener;
 import com.github.footballnews.ui.newslist.presenter.NewsListPresenter;
 import com.github.footballnews.ui.widget.LoadingDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerNewsList;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    private NewsListAdapter adapter;
+    private List<NewsItemModel> newsItemModelList;
 
     private NewsListPresenter presenter;
 
@@ -76,6 +80,11 @@ public class MainActivity extends AppCompatActivity
         bottomNavigationView.setOnNavigationItemSelectedListener(this::changeStatus);
 
         loadingDialog = new LoadingDialog(this);
+
+        newsItemModelList = new ArrayList<>();
+        adapter = new NewsListAdapter(newsItemModelList, this);
+        recyclerNewsList.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
+        recyclerNewsList.setAdapter(adapter);
     }
 
     private boolean changeStatus(MenuItem item) {
@@ -124,15 +133,16 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showNewsList(List<NewsItemModel> newsItemModelList) {
-        recyclerNewsList.setAdapter(new NewsListAdapter(newsItemModelList, this));
-        recyclerNewsList.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
+        adapter.setNewsItemModels(newsItemModelList);
     }
 
     @Override
     public void setTitles(@NonNull String title, @Nullable String subTitle) {
         Log.i("TAG", "setTitles: " + title + "; " + subTitle);
-        getSupportActionBar().setTitle(title);
-        getSupportActionBar().setSubtitle(subTitle);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+            getSupportActionBar().setSubtitle(subTitle);
+        }
     }
 
     @Override

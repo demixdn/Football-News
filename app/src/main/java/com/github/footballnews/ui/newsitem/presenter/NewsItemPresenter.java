@@ -11,6 +11,6 @@ import com.github.footballnews.ui.newsitem.view.NewsItemView;
  *         Project FootballNews
  */
 
-public interface NewsItemPresenter extends Presenter<NewsItemView> {
+public interface NewsItemPresenter extends Presenter<NewsItemView>{
     void loadNewsItem(int newsItemId);
 }

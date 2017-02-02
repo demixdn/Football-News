@@ -130,13 +130,13 @@ public class AppModule implements AppComponent {
         return newsItemMapper;
     }
 
-    public NewsListPresenter getNewsListPresenter() {
+    private NewsListPresenter getNewsListPresenter() {
         if(newsListPresenter == null)
             newsListPresenter = new NewsListPresenterImpl(getFootballNews(), applicationContext);
         return newsListPresenter;
     }
 
-    public NewsItemPresenter getNewsItemPresenter() {
+    private NewsItemPresenter getNewsItemPresenter() {
         if(newsItemPresenter == null)
             newsItemPresenter = new NewsItemPresenterImpl(getFootballItemDetail());
         return newsItemPresenter;
