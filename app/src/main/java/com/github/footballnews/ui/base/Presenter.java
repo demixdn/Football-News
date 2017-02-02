@@ -9,7 +9,10 @@ package com.github.footballnews.ui.base;
  */
 
 public interface Presenter<V extends View> {
+
     void bindView(V view);
+
     void unbindView();
+
     V getView();
 }

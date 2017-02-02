@@ -1,5 +1,6 @@
 package com.github.footballnews.ui.newsitem.presenter;
 
+import com.github.footballnews.ui.base.BasePresenter;
 import com.github.footballnews.ui.newsitem.view.NewsItemView;
 import com.github.rules.interactor.GetFootballItemDetail;
 import com.github.rules.models.NewsItem;
@@ -14,10 +15,9 @@ import io.reactivex.observers.DefaultObserver;
  *         Project FootballNews
  */
 
-public class NewsItemPresenterImpl implements NewsItemPresenter {
+public class NewsItemPresenterImpl extends BasePresenter<NewsItemView> implements NewsItemPresenter {
 
     private final GetFootballItemDetail getFootballItemDetail;
-    private NewsItemView newsItemView;
 
     public NewsItemPresenterImpl(GetFootballItemDetail getFootballItemDetail) {
         this.getFootballItemDetail = getFootballItemDetail;
@@ -44,20 +44,5 @@ public class NewsItemPresenterImpl implements NewsItemPresenter {
                 }
             });
         }
-    }
-
-    @Override
-    public void bindView(NewsItemView view) {
-        this.newsItemView = view;
-    }
-
-    @Override
-    public void unbindView() {
-        this.newsItemView = null;
-    }
-
-    @Override
-    public NewsItemView getView() {
-        return newsItemView;
     }
 }

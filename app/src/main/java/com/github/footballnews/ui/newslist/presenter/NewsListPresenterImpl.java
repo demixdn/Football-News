@@ -1,7 +1,6 @@
 package com.github.footballnews.ui.newslist.presenter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.MenuItem;
 
@@ -9,6 +8,7 @@ import com.github.footballnews.R;
 import com.github.footballnews.data.StaticMenu;
 import com.github.footballnews.model.MenuItemModel;
 import com.github.footballnews.model.mapper.NewsItemMapper;
+import com.github.footballnews.ui.base.BasePresenter;
 import com.github.footballnews.ui.newslist.view.NewsListView;
 import com.github.rules.interactor.GetFootballNews;
 import com.github.rules.models.NewsItem;
@@ -26,13 +26,10 @@ import io.reactivex.observers.DefaultObserver;
  *         Project FootballNews
  */
 
-public class NewsListPresenterImpl implements NewsListPresenter {
+public class NewsListPresenterImpl extends BasePresenter<NewsListView> implements NewsListPresenter {
 
     private final GetFootballNews useCaseGetFootballNews;
     private final Context applicationContext;
-
-    @Nullable
-    private NewsListView view;
 
     public NewsListPresenterImpl(GetFootballNews useCaseGetFootballNews, Context applicationContext) {
         this.useCaseGetFootballNews = useCaseGetFootballNews;
@@ -62,7 +59,8 @@ public class NewsListPresenterImpl implements NewsListPresenter {
     }
 
     private void useCaseStart(String title, String subtitle, Integer pageId) {
-        getView().setTitles(title, subtitle);
+        if (getView() != null)
+            getView().setTitles(title, subtitle);
         useCaseGetFootballNews
                 .setPageId(pageId)
                 .execute(new NewsItemObserver(getView()));
@@ -73,28 +71,12 @@ public class NewsListPresenterImpl implements NewsListPresenter {
         // TODO: 31.01.2017 add change status
     }
 
-    @Override
-    public void bindView(NewsListView view) {
-        this.view = view;
-    }
-
-    @Override
-    public void unbindView() {
-        this.view = null;
-    }
-
-    @Nullable
-    @Override
-    public NewsListView getView() {
-        return view;
-    }
-
     private final class NewsItemObserver extends DefaultObserver<List<NewsItem>> {
 
-        @NonNull
+        @Nullable
         private final NewsListView view;
 
-        public NewsItemObserver(@NonNull NewsListView view) {
+        NewsItemObserver(@Nullable NewsListView view) {
             Preconditions.checkNotNull(view);
             this.view = view;
         }
@@ -102,22 +84,26 @@ public class NewsListPresenterImpl implements NewsListPresenter {
         @Override
         protected void onStart() {
             super.onStart();
-            view.showProgress();
+            if (view != null)
+                view.showProgress();
         }
 
         @Override
         public void onNext(List<NewsItem> newsItems) {
-            view.showNewsList(NewsItemMapper.transform(newsItems));
+            if (view != null)
+                view.showNewsList(NewsItemMapper.transform(newsItems));
         }
 
         @Override
         public void onError(Throwable e) {
-            view.showError(e.getMessage());
+            if (view != null)
+                view.showError(e.getMessage());
         }
 
         @Override
         public void onComplete() {
-            view.hideProgress();
+            if (view != null)
+                view.hideProgress();
         }
     }
 }

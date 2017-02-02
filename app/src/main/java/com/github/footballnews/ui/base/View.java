@@ -9,6 +9,7 @@ package com.github.footballnews.ui.base;
  */
 
 public interface View<P extends Presenter> {
+
     void bindPresenter(P presenter);
     P getPresenter();
 }
