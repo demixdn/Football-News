@@ -1,5 +1,7 @@
 package com.github.footballnews.ui.newsitem.presenter;
 
+import android.content.Intent;
+
 import com.github.footballnews.ui.base.Presenter;
 import com.github.footballnews.ui.newsitem.view.NewsItemView;
 
@@ -12,5 +14,5 @@ import com.github.footballnews.ui.newsitem.view.NewsItemView;
  */
 
 public interface NewsItemPresenter extends Presenter<NewsItemView>{
-    void loadNewsItem(int newsItemId);
+    void setBundle(Intent bundle);
 }

@@ -40,13 +40,13 @@ public class NewsItemMapper {
 
     @SuppressWarnings("deprecation")
     @Nullable
-    private static NewsItemModel transform(@NonNull NewsItem item) {
+    public static NewsItemModel transform(@NonNull NewsItem item) {
         NewsItemModel result = new NewsItemModel();
         result.setTitle(Html.fromHtml(item.getTitle()).toString());
         result.setId(item.getNewsId());
         result.setDescription(Html.fromHtml(item.getDescription()).toString());
         result.setImageUrl(item.getImage().getFullSizeUrl());
-        result.setHtmlArticle(item.getArticle());
+        result.setHtmlArticle(item.getArticle() != null ? Html.fromHtml(item.getArticle()).toString() : null);
         result.setDate(dateFromLong(item.getDate()));
         return result;
     }

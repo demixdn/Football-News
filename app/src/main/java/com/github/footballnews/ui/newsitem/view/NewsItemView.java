@@ -2,7 +2,6 @@ package com.github.footballnews.ui.newsitem.view;
 
 import com.github.footballnews.ui.base.View;
 import com.github.footballnews.ui.newsitem.presenter.NewsItemPresenter;
-import com.github.rules.models.NewsItem;
 
 /**
  * Date: 31.01.2017
@@ -19,5 +18,9 @@ public interface NewsItemView extends View<NewsItemPresenter> {
 
     void showError(String errorMessage);
 
-    void showNewsItem(NewsItem newsItem);
+    void showTitle(String title);
+
+    void showImage(String imageUrl);
+
+    void showArticle(String article);
 }

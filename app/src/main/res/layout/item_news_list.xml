@@ -21,13 +21,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/news_item_info_bg"
+            android:background="@drawable/news_item_desc_bg"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="4dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/newsItemDate"
@@ -36,6 +35,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/newsItemTitle"
+                    android:visibility="gone"
                     style="@style/NewsItemDate"/>
 
                 <TextView
