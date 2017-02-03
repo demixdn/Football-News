@@ -36,23 +36,22 @@ import okhttp3.logging.HttpLoggingInterceptor;
  * @author Aleks Sander
  *         Project FootballNews
  */
-
 public class AppModule implements AppComponent {
 
     private final Context applicationContext;
     private final String baseUrl;
-    private UIScheduler uiSheduler;
-    private WorkerScheduler workerScheduler;
-    private GetFootballMenu footballMenu;
-    private GetFootballNews footballNews;
-    private GetFootballItemDetail footballItemDetail;
+    private UIScheduler uiScheduler;
     private OkHttpClient okHttpClient;
-    private RestAPI restAPI;
     private FootballRepository footballRepository;
     private MenuMapper menuMapper;
     private NewsItemMapper newsItemMapper;
     private NewsListPresenter newsListPresenter;
     private NewsItemPresenter newsItemPresenter;
+    private AndroidWorkerScheduler androidWorkerScheduler;
+    private GetFootballMenu getFootballMenu;
+    private GetFootballNews getFootballNews;
+    private GetFootballItemDetail getFootballItemDetail;
+    private RestAPI restApi;
 
 
     public AppModule(Context applicationContext, String baseUrl) {
@@ -60,28 +59,34 @@ public class AppModule implements AppComponent {
         this.baseUrl = baseUrl;
     }
 
-    private Context getApplicationContext() {
-        return applicationContext;
-    }
-
-    private UIScheduler getUiSheduler() {
-        return new AndroidUiScheduler();
+    private UIScheduler getUiScheduler() {
+        if (uiScheduler == null)
+            uiScheduler = new AndroidUiScheduler();
+        return uiScheduler;
     }
 
     private WorkerScheduler getWorkerScheduler() {
-        return new AndroidWorkerScheduler();
+        if (androidWorkerScheduler == null)
+            androidWorkerScheduler = new AndroidWorkerScheduler();
+        return androidWorkerScheduler;
     }
 
     private GetFootballMenu getFootballMenu() {
-        return new GetFootballMenu(getUiSheduler(), getWorkerScheduler(), getFootballRepository());
+        if (getFootballMenu == null)
+            getFootballMenu = new GetFootballMenu(getUiScheduler(), getWorkerScheduler(), getFootballRepository());
+        return getFootballMenu;
     }
 
     private GetFootballNews getFootballNews() {
-        return new GetFootballNews(getUiSheduler(), getWorkerScheduler(), getFootballRepository());
+        if (getFootballNews == null)
+            getFootballNews = new GetFootballNews(getUiScheduler(), getWorkerScheduler(), getFootballRepository());
+        return getFootballNews;
     }
 
     private GetFootballItemDetail getFootballItemDetail() {
-        return new GetFootballItemDetail(getUiSheduler(), getWorkerScheduler(), getFootballRepository());
+        if (getFootballItemDetail == null)
+            getFootballItemDetail = new GetFootballItemDetail(getUiScheduler(), getWorkerScheduler(), getFootballRepository());
+        return getFootballItemDetail;
     }
 
     private String getBaseUrl() {
@@ -89,7 +94,7 @@ public class AppModule implements AppComponent {
     }
 
     private OkHttpClient getOkHttpClient() {
-        if(okHttpClient == null)
+        if (okHttpClient == null)
             okHttpClient = createOkHttp();
         return okHttpClient;
     }
@@ -100,7 +105,7 @@ public class AppModule implements AppComponent {
                 .readTimeout(DataConst.Params.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DataConst.Params.DEFAULT_TIMEOUT, TimeUnit.SECONDS);
 
-        if(BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(DataConst.Params.LOG_LEVEL);
             httpClientBuilder.addInterceptor(logging);
@@ -109,35 +114,37 @@ public class AppModule implements AppComponent {
     }
 
     private RestAPI getRestAPI() {
-        return new RestModule(getBaseUrl(), getOkHttpClient()).getRestApi();
+        if (restApi == null)
+            restApi = new RestModule(getBaseUrl(), getOkHttpClient()).getRestApi();
+        return restApi;
     }
 
     private FootballRepository getFootballRepository() {
-        if(footballRepository == null)
+        if (footballRepository == null)
             footballRepository = new FootballRepositoryImpl(getMenuMapper(), getNewsItemMapper(), getRestAPI());
         return footballRepository;
     }
 
     private MenuMapper getMenuMapper() {
-        if(menuMapper == null)
+        if (menuMapper == null)
             menuMapper = new MenuMapper();
         return menuMapper;
     }
 
     private NewsItemMapper getNewsItemMapper() {
-        if(newsItemMapper == null)
+        if (newsItemMapper == null)
             newsItemMapper = new NewsItemMapper();
         return newsItemMapper;
     }
 
-    public NewsListPresenter getNewsListPresenter() {
-        if(newsListPresenter == null)
+    private NewsListPresenter getNewsListPresenter() {
+        if (newsListPresenter == null)
             newsListPresenter = new NewsListPresenterImpl(getFootballNews(), applicationContext);
         return newsListPresenter;
     }
 
-    public NewsItemPresenter getNewsItemPresenter() {
-        if(newsItemPresenter == null)
+    private NewsItemPresenter getNewsItemPresenter() {
+        if (newsItemPresenter == null)
             newsItemPresenter = new NewsItemPresenterImpl(getFootballItemDetail());
         return newsItemPresenter;
     }
