@@ -8,6 +8,7 @@ import com.github.footballdata.mappers.NewsItemMapper;
 import com.github.footballdata.net.RestAPI;
 import com.github.footballdata.net.RestModule;
 import com.github.footballdata.repository.FootballRepositoryImpl;
+import com.github.footballdata.repository.NewsRepositoryImpl;
 import com.github.footballnews.BuildConfig;
 import com.github.footballnews.executors.AndroidUiScheduler;
 import com.github.footballnews.executors.AndroidWorkerScheduler;
@@ -21,8 +22,8 @@ import com.github.rules.FootballRepository;
 import com.github.rules.executor.UIScheduler;
 import com.github.rules.executor.WorkerScheduler;
 import com.github.rules.interactor.GetFootballItemDetail;
-import com.github.rules.interactor.GetFootballMenu;
-import com.github.rules.interactor.GetFootballNews;
+import com.github.rules.interactor.GetFootballNewses;
+import com.github.rules.repository.NewsRepository;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,13 +44,13 @@ public class AppModule implements AppComponent {
     private UIScheduler uiScheduler;
     private OkHttpClient okHttpClient;
     private FootballRepository footballRepository;
+    private NewsRepository newsRepository;
     private MenuMapper menuMapper;
     private NewsItemMapper newsItemMapper;
     private NewsListPresenter newsListPresenter;
     private NewsItemPresenter newsItemPresenter;
     private AndroidWorkerScheduler androidWorkerScheduler;
-    private GetFootballMenu getFootballMenu;
-    private GetFootballNews getFootballNews;
+    private GetFootballNewses getFootballNewses;
     private GetFootballItemDetail getFootballItemDetail;
     private RestAPI restApi;
 
@@ -71,22 +72,10 @@ public class AppModule implements AppComponent {
         return androidWorkerScheduler;
     }
 
-    private GetFootballMenu getFootballMenu() {
-        if (getFootballMenu == null)
-            getFootballMenu = new GetFootballMenu(getUiScheduler(), getWorkerScheduler(), getFootballRepository());
-        return getFootballMenu;
-    }
-
-    private GetFootballNews getFootballNews() {
-        if (getFootballNews == null)
-            getFootballNews = new GetFootballNews(getUiScheduler(), getWorkerScheduler(), getFootballRepository());
-        return getFootballNews;
-    }
-
-    private GetFootballItemDetail getFootballItemDetail() {
-        if (getFootballItemDetail == null)
-            getFootballItemDetail = new GetFootballItemDetail(getUiScheduler(), getWorkerScheduler(), getFootballRepository());
-        return getFootballItemDetail;
+    private GetFootballNewses getFootballNews() {
+        if (getFootballNewses == null)
+            getFootballNewses = new GetFootballNewses(getUiScheduler(), getWorkerScheduler(), getNewsRepository());
+        return getFootballNewses;
     }
 
     private String getBaseUrl() {
@@ -119,10 +108,22 @@ public class AppModule implements AppComponent {
         return restApi;
     }
 
+    private NewsRepository getNewsRepository() {
+        if(newsRepository == null)
+            newsRepository = new NewsRepositoryImpl(getNewsItemMapper(), getRestAPI());
+        return newsRepository;
+    }
+
     private FootballRepository getFootballRepository() {
         if (footballRepository == null)
             footballRepository = new FootballRepositoryImpl(getMenuMapper(), getNewsItemMapper(), getRestAPI());
         return footballRepository;
+    }
+
+    private GetFootballItemDetail getGetFootballItemDetail() {
+        if(getFootballItemDetail == null)
+            getFootballItemDetail = new GetFootballItemDetail(getUiScheduler(), getWorkerScheduler(), getNewsRepository());
+        return getFootballItemDetail;
     }
 
     private MenuMapper getMenuMapper() {
@@ -145,7 +146,7 @@ public class AppModule implements AppComponent {
 
     private NewsItemPresenter getNewsItemPresenter() {
         if (newsItemPresenter == null)
-            newsItemPresenter = new NewsItemPresenterImpl(getFootballItemDetail());
+            newsItemPresenter = new NewsItemPresenterImpl(getGetFootballItemDetail());
         return newsItemPresenter;
     }
 

@@ -8,6 +8,6 @@ package com.github.footballnews.di;
  *         Project FootballNews
  */
 
-public interface HasComponent<C extends Component> {
+public interface HasComponent<C> {
     C getComponent();
 }

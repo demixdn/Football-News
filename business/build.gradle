@@ -18,6 +18,7 @@ sourceSets {
 dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
 
+    compile domainDependencies.javaxInject
     compile domainDependencies.guava
     compile domainDependencies.rxJava
 }

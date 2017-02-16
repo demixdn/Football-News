@@ -14,18 +14,19 @@ ext {
     versionName = "${majorVersion}.${minorVersion}.${patchVersion}"
 
     //Libraries
-    androidSupportVersion =     '25.1.0'
-    guavaVersion =              '18.0'
-    rxJavaVersion =             '2.0.4'
-    rxAndroidVersion =          '2.0.1'
-    rxBinding =                 '1.0.0'
-    butterKnifeVersion =        '8.5.1'
-    okHttpVersion =             '3.4.1'
-    retrofitVersion =           '2.2.0-SNAPSHOT'
-    autoValueVersion =          '1.2'
-    circleImageViewVersion =    '2.3.0'
-    glideVersion =              '3.7.0'
-    gsonVersion =               '2.7'
+    androidSupportVersion = '25.1.0'
+    guavaVersion = '18.0'
+    rxJavaVersion = '2.0.4'
+    rxAndroidVersion = '2.0.1'
+    rxBinding = '1.0.0'
+    butterKnifeVersion = '8.5.1'
+    javaxInjectVersion = '1'
+    okHttpVersion = '3.4.1'
+    retrofitVersion = '2.2.0-SNAPSHOT'
+    circleImageViewVersion = '2.3.0'
+    glideVersion = '3.7.0'
+    gsonVersion = '2.7'
+    daggerVersion = '2.8'
 
 
     //Testing
@@ -53,6 +54,7 @@ ext {
     ]
 
     domainDependencies = [
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
             guava:              "com.google.guava:guava:${guavaVersion}",
             rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
     ]

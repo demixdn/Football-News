@@ -11,7 +11,7 @@ import com.github.footballnews.ui.newslist.view.NewsListView;
  *         Project FootballNews
  */
 
-public interface AppComponent extends Component {
+public interface AppComponent {
     void inject(NewsListView newsListView);
     void inject(NewsItemView newsItemView);
 }

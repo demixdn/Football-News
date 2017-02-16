@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.github.footballnews.App;
 import com.github.footballnews.R;
 import com.github.footballnews.di.AppComponent;
@@ -100,6 +101,12 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        Glide.get(this).clearMemory();
+        super.onDestroy();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

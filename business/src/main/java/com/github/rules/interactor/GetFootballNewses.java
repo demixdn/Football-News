@@ -6,6 +6,8 @@ import com.github.rules.models.NewsItem;
 import com.github.rules.repository.NewsRepository;
 import com.google.common.base.Preconditions;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 
 /**
@@ -16,31 +18,33 @@ import io.reactivex.Observable;
  *         Project FootballNews
  */
 
-public class GetFootballItemDetail extends UseCase<NewsItem, GetFootballItemDetail.Params> {
+public class GetFootballNewses extends UseCase<List<NewsItem>, GetFootballNewses.Params> {
 
     private final NewsRepository newsRepository;
 
-    public GetFootballItemDetail(UIScheduler uiScheduler, WorkerScheduler workerScheduler, NewsRepository newsRepository) {
+    public GetFootballNewses(UIScheduler uiScheduler, WorkerScheduler workerScheduler, NewsRepository newsRepository) {
         super(uiScheduler, workerScheduler);
         Preconditions.checkNotNull(newsRepository);
         this.newsRepository = newsRepository;
     }
 
     @Override
-    Observable<NewsItem> buildUseCaseObservable(Params params) {
-        Preconditions.checkNotNull(params);
-        return this.newsRepository.getNewsDetail(params.itemId);
+    Observable<List<NewsItem>> buildUseCaseObservable(Params params) {
+        if (params == null)
+            return this.newsRepository.getNews(null);
+        else
+            return this.newsRepository.getNews(params.pageId);
     }
 
     public static final class Params {
-        private final int itemId;
+        private final int pageId;
 
-        private Params(int itemId) {
-            this.itemId = itemId;
+        private Params(int pageId) {
+            this.pageId = pageId;
         }
 
-        public static Params forItem(int itemId) {
-            return new Params(itemId);
+        public static Params forPage(int pageId) {
+            return new Params(pageId);
         }
     }
 }

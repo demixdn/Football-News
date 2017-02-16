@@ -115,6 +115,12 @@ public class NewsItemActivity extends AppCompatActivity implements HasComponent<
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onDestroy() {
+        Glide.get(this).clearMemory();
+        super.onDestroy();
+    }
+
     private void applyPalette(Palette palette) {
         int primaryDark = ContextCompat.getColor(NewsItemActivity.this, R.color.colorPrimaryDark);
         int primary = ContextCompat.getColor(NewsItemActivity.this, R.color.colorPrimary);

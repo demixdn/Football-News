@@ -9,8 +9,6 @@ import com.github.footballnews.ui.newsitem.view.NewsItemView;
 import com.github.rules.interactor.GetFootballItemDetail;
 import com.github.rules.models.NewsItem;
 
-import io.reactivex.observers.DefaultObserver;
-
 import static com.github.footballnews.ui.newsitem.view.NewsItemActivity.BUNDLE_ITEM;
 
 /**
@@ -49,26 +47,28 @@ public class NewsItemPresenterImpl extends BasePresenter<NewsItemView> implement
     private void loadNewsItem(int newsItemId) {
         if (getView() != null) {
             getView().showProgress();
-            getFootballItemDetail.setItemId(newsItemId).execute(new DefaultObserver<NewsItem>() {
-                @Override
-                public void onNext(NewsItem newsItem) {
-                    itemModel = NewsItemMapper.transform(newsItem);
-                    if (getView() != null)
-                        getView().showArticle(itemModel.getHtmlArticle());
-                }
+            getFootballItemDetail.execute(new NewsDetailObserver(), GetFootballItemDetail.Params.forItem(newsItemId));
+        }
+    }
 
-                @Override
-                public void onError(Throwable e) {
-                    if (getView() != null)
-                        getView().showError(e.getMessage());
-                }
+    private final class NewsDetailObserver extends com.github.rules.interactor.DefaultObserver<NewsItem> {
+        @Override
+        public void onNext(NewsItem newsItem) {
+            itemModel = NewsItemMapper.transform(newsItem);
+            if (getView() != null)
+                getView().showArticle(itemModel.getHtmlArticle());
+        }
 
-                @Override
-                public void onComplete() {
-                    if (getView() != null)
-                        getView().hideProgress();
-                }
-            });
+        @Override
+        public void onComplete() {
+            if (getView() != null)
+                getView().hideProgress();
+        }
+
+        @Override
+        public void onError(Throwable exception) {
+            if (getView() != null)
+                getView().showError(exception.getMessage());
         }
     }
 }

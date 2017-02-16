@@ -10,7 +10,6 @@ import io.reactivex.Scheduler;
  * @author Aleks Sander
  *         Project FootballNews
  */
-@FunctionalInterface
 public interface WorkerScheduler {
     Scheduler getScheduler();
 }

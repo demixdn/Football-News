@@ -10,13 +10,11 @@ import com.github.footballnews.model.MenuItemModel;
 import com.github.footballnews.model.mapper.NewsItemMapper;
 import com.github.footballnews.ui.base.BasePresenter;
 import com.github.footballnews.ui.newslist.view.NewsListView;
-import com.github.rules.interactor.GetFootballNews;
+import com.github.rules.interactor.GetFootballNewses;
 import com.github.rules.models.NewsItem;
 import com.google.common.base.Preconditions;
 
 import java.util.List;
-
-import io.reactivex.observers.DefaultObserver;
 
 /**
  * Date: 30.01.2017
@@ -28,11 +26,11 @@ import io.reactivex.observers.DefaultObserver;
 
 public class NewsListPresenterImpl extends BasePresenter<NewsListView> implements NewsListPresenter {
 
-    private final GetFootballNews useCaseGetFootballNews;
+    private final GetFootballNewses useCaseGetFootballNewses;
     private final Context applicationContext;
 
-    public NewsListPresenterImpl(GetFootballNews useCaseGetFootballNews, Context applicationContext) {
-        this.useCaseGetFootballNews = useCaseGetFootballNews;
+    public NewsListPresenterImpl(GetFootballNewses useCaseGetFootballNewses, Context applicationContext) {
+        this.useCaseGetFootballNewses = useCaseGetFootballNewses;
         this.applicationContext = applicationContext;
     }
 
@@ -61,9 +59,8 @@ public class NewsListPresenterImpl extends BasePresenter<NewsListView> implement
     private void useCaseStart(String title, String subtitle, Integer pageId) {
         if (getView() != null)
             getView().setTitles(title, subtitle);
-        useCaseGetFootballNews
-                .setPageId(pageId)
-                .execute(new NewsItemObserver(getView()));
+        GetFootballNewses.Params params = pageId == null ? null : GetFootballNewses.Params.forPage(pageId);
+        useCaseGetFootballNewses.execute(new NewsItemObserver(getView()), params);
     }
 
     @Override
@@ -71,7 +68,7 @@ public class NewsListPresenterImpl extends BasePresenter<NewsListView> implement
         // TODO: 31.01.2017 add change status
     }
 
-    private final class NewsItemObserver extends DefaultObserver<List<NewsItem>> {
+    private final class NewsItemObserver extends com.github.rules.interactor.DefaultObserver<List<NewsItem>> {
 
         @Nullable
         private final NewsListView view;
