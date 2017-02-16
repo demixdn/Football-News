@@ -17,8 +17,14 @@ sourceSets {
 
 dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.testDependencies
 
     compile domainDependencies.javaxInject
     compile domainDependencies.guava
     compile domainDependencies.rxJava
+
+    testCompile domainTestDependencies.junit
+    testCompile domainTestDependencies.mockito
+    testCompile domainTestDependencies.assertj
+
 }
