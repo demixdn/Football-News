@@ -22,7 +22,7 @@ ext {
     butterKnifeVersion = '8.5.1'
     javaxInjectVersion = '1'
     okHttpVersion = '3.4.1'
-    retrofitVersion = '2.2.0-SNAPSHOT'
+    retrofitVersion = '2.2.0'
     circleImageViewVersion = '2.3.0'
     glideVersion = '3.7.0'
     gsonVersion = '2.7'
