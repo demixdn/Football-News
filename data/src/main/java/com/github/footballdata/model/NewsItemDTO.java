@@ -15,14 +15,14 @@ import org.simpleframework.xml.Root;
  * @author Aleks Sander
  *         Project FootballNews
  */
-@Root(name = "item")
+@Root(name = "item", strict = false)
 public class NewsItemDTO {
     @Nullable
     @Attribute(name = "type")
     private String type;
 
     @Nullable
-    @Element(name = "title", data = true)
+    @Element(name = "title", data = true, required = false)
     private String title;
 
     @Nullable
@@ -30,11 +30,11 @@ public class NewsItemDTO {
     private String link;
 
     @Nullable
-    @Element(name = "date", data = true)
+    @Element(name = "date", data = true, required = false)
     private String date;
 
     @Nullable
-    @Element(name = "description", data = true)
+    @Element(name = "description", data = true, required = false)
     private String description;
 
     @Nullable

@@ -2,6 +2,7 @@ package com.github.footballdata.mappers;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.github.footballdata.model.ImageDTO;
 import com.github.footballdata.model.NewsItemDTO;
@@ -37,7 +38,9 @@ public class NewsItemMapper {
         List<NewsItem> result = new ArrayList<>();
         if (rss != null && rss.getChannel() != null && rss.getChannel().getNewsItems() != null && !rss.getChannel().getNewsItems().isEmpty()) {
             for (NewsItemDTO item : rss.getChannel().getNewsItems()) {
-                result.add(transformItem(item));
+                if (!TextUtils.isEmpty(item.getType()) && item.getType().contentEquals("news")) {
+                    result.add(transformItem(item));
+                }
             }
         }
         return result;
@@ -79,7 +82,7 @@ public class NewsItemMapper {
 
     @Nullable
     public NewsItem transformDetail(@Nullable RssDTO rss, int newsId) {
-        if(rss == null || rss.getChannel() == null || rss.getChannel().getNewsItems() == null || rss.getChannel().getNewsItems().isEmpty())
+        if (rss == null || rss.getChannel() == null || rss.getChannel().getNewsItems() == null || rss.getChannel().getNewsItems().isEmpty())
             return null;
         NewsItemDTO src = rss.getChannel().getNewsItems().get(0);
         NewsItem result = new NewsItem();
