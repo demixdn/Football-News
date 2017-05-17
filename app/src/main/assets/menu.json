@@ -1,0 +1,432 @@
+[
+  {
+    "menu_id" : 1,
+    "name": "Украина",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=4"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=18"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=18"
+      }
+    ]
+  },
+  {
+    "menu_id": 2,
+    "name": "Украина. Лига 1",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=12"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=46"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=46"
+      }
+    ]
+  },
+  {
+    "menu_id": 3,
+    "name": "Англия",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=66"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=15"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=15"
+      }
+    ]
+  },
+  {
+    "menu_id": 4,
+    "name": "Аргентина",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=96"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=68"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=68"
+      }
+    ]
+  },
+  {
+    "menu_id": 5,
+    "name": "Бразилия",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=70"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=51"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=51"
+      }
+    ]
+  },
+  {
+    "menu_id": 6,
+    "name": "Германия",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=74"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=13"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=13"
+      }
+    ]
+  },
+  {
+    "menu_id": 7,
+    "name": "Испания",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=121"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=10"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=10"
+      }
+    ]
+  },
+  {
+    "menu_id": 8,
+    "name": "Италия",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=113"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=12"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=12"
+      }
+    ]
+  },
+  {
+    "menu_id": 9,
+    "name": "Нидерланды",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=129"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=38"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=38"
+      }
+    ]
+  },
+  {
+    "menu_id": 10,
+    "name": "Португалия",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=168"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=32"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=32"
+      }
+    ]
+  },
+  {
+    "menu_id": 11,
+    "name": "Северная Америка",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=184"
+      }
+    ]
+  },
+  {
+    "menu_id": 12,
+    "name": "Турция",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=197"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=62"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=62"
+      }
+    ]
+  },
+  {
+    "menu_id": 13,
+    "name": "Франция",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=189"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=14"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=14"
+      }
+    ]
+  },
+  {
+    "menu_id": 14,
+    "name": "Другие страны",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=181"
+      }
+    ]
+  },
+  {
+    "menu_id": 15,
+    "name": "Лига чемпионов",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=24"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=16"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=16"
+      }
+    ]
+  },
+  {
+    "menu_id": 16,
+    "name": "Лига Европы",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=105"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=58"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=58"
+      }
+    ]
+  },
+  {
+    "menu_id": 17,
+    "name": "Копа Либертадорес",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=156"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=65"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=65"
+      }
+    ]
+  },
+  {
+    "menu_id": 18,
+    "name": "ЧМ-2014",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=137"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=20"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=20"
+      }
+    ]
+  },
+  {
+    "menu_id": 19,
+    "name": "ЕВРО-2016",
+    "category": [
+      {
+        "name": "Новости",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=1467"
+      },
+      {
+        "name": "Календарь",
+        "type": "MatchCalendar",
+        "url": "http://football.ua/hnd/Android/FootballMatches.ashx?champ_id=23"
+      },
+      {
+        "name": "Таблица",
+        "type": "TableItem",
+        "url": "http://football.ua/hnd/Android/FootballTable.ashx?champ_id=23"
+      }
+    ]
+  },
+  {
+    "menu_id": 20,
+    "name": "ЧТИВО",
+    "category": [
+      {
+        "name": "4-4-2",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=244"
+      },
+      {
+        "name": "Бизнес и финансы",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=203"
+      },
+      {
+        "name": "Бей-беги",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=213"
+      },
+      {
+        "name": "Другой футбол",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=306"
+      },
+      {
+        "name": "Испанский связной",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=223"
+      },
+      {
+        "name": "Ретро Футбол",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=229"
+      },
+      {
+        "name": "Скаут",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=226"
+      },
+      {
+        "name": "Третий тайм",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=232"
+      },
+      {
+        "name": "Прочее",
+        "type": "NewsList",
+        "url": "http://football.ua/hnd/Android/News.ashx?page_id=220"
+      }
+    ]
+  }
+]
